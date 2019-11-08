@@ -2114,7 +2114,7 @@ input, select, textarea {
 			position: relative;
 			display: block;
 			font-size: 0.6em;
-			color: black;
+			color: rgba(255, 255, 255, 0.5);
 			line-height: 1.25em;
 			margin: 0.5em 0 0 0;
 		}
@@ -2248,20 +2248,19 @@ input, select, textarea {
 			}
 
 			#main > section.one {
-				background-color: #81918E;
-				background-image: url("../../images/banner.jpg");
+				background-color: black;
 			}
 
 			#main > section.two {
-				background-color: #f5fafa;
+				background-color:black;
 			}
 
 			#main > section.three {
-				background-color: #ecf1f1;
+				background-color:black;
 			}
 
 			#main > section.four {
-				background-color: #e8edec;
+				background-color: black;
 			}
 
 /* Wide */
