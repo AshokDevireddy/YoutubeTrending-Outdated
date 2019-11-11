@@ -1,16 +1,32 @@
 import os
 import json
 import requests
+import time
 
-API_TOKEN = 'AIzaSyDfzZw-wSX8NfI2vamY38igjIkIMimv_eA'
+API_TOKEN = 'AIzaSyCm8Wx3pvh8SmbjY6LE6DVpUJ92Rs0c5Jc'
 API_URL_BASE = 'https://www.googleapis.com/youtube/v3'
 
-def search_vids_keyword(search_keyword):
-#    response = requests.get("%s/search?part=snippet&maxResults=50&q=%s&%s" (API_URL_BASE, search_keyword, API_TOKEN)
-    response = requests.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=a&key=AIzaSyDfzZw-wSX8NfI2vamY38igjIkIMimv_eA")
-    print(json.loads(response.content))
-    f = open("tools/response.json","w+")
-    f.write(json.dumps(json.loads(response.content), indent = 4, separators = (", ", "= ")))
-    f.close();
+def search_vids_keyword(search_keyword, starting_page_token):
+    full_response = ''
+    next_page_token = starting_page_token
+    while next_page_token != 'end':
+        response = requests.get(API_URL_BASE + "/search?part=snippet&prettyPrint=true&maxResults=50&q=a&key=" + API_TOKEN + "&pageToken=" + next_page_token)
+        loaded_response = json.loads(response.content)
+        print(response.content)
+        try:
+            next_page_token = loaded_response['nextPageToken']
+        except:
+            next_page_token = 'end' 
 
-search_vids_keyword('a');
+        print(next_page_token)
+        full_response = full_response + json.dumps(loaded_response)
+    return full_response;
+    
+f = open("tools/response.json","w+")
+arr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+i = 0
+while i < len(arr):
+    response = search_vids_keyword(arr[i], "");
+    f.write((response))
+    i = i + 1;
+f.close();
