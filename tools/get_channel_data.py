@@ -3,12 +3,7 @@ import json
 import requests
 
 API_TOKEN = os.environ['DEVELOPER_KEY'];
-API_URL_BASE = 'https://www.googleapis.com/youtube/v3/'
+API_URL_BASE = 'http://api.wolframalpha.com/v1/simple?appid=DEMO'
 
-response = requests.get(API_URL_BASE + "/channels")
+response = requests.get(API_URL_BASE + "&i=What+airplanes+are+flying+overhead%3F")
 print(response)
-
-def get_channel_resources(channel_name)
-{
-    PARAMS = []
-}
