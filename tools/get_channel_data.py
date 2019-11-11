@@ -3,7 +3,7 @@ import json
 import requests
 import time
 
-API_TOKEN = 'AIzaSyCm8Wx3pvh8SmbjY6LE6DVpUJ92Rs0c5Jc'
+API_TOKEN = 'AIzaSyCqWZpaWln53yBER6LFp1gqkgyRNJEzF8g'
 API_URL_BASE = 'https://www.googleapis.com/youtube/v3'
 
 def search_vids_keyword(search_keyword, starting_page_token):
@@ -20,6 +20,7 @@ def search_vids_keyword(search_keyword, starting_page_token):
 
         print(next_page_token)
         full_response = full_response + json.dumps(loaded_response)
+        time.sleep(30);
     return full_response;
     
 f = open("tools/response.json","w+")
