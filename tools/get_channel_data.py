@@ -17,7 +17,6 @@ def search_vids_keyword(search_keyword, starting_page_token):
             next_page_token = loaded_response['nextPageToken']
         except:
             next_page_token = 'end' 
-
         print(next_page_token)
         full_response = full_response + json.dumps(loaded_response)
         time.sleep(30);
